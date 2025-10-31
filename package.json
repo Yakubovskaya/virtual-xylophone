@@ -21,6 +21,7 @@
     "vite": "^7.1.7"
   },
   "dependencies": {
-    "bootstrap": "^5.3.8"
+    "bootstrap": "^5.3.8",
+    "modern-normalize": "^3.0.1"
   }
 }
