@@ -1,5 +1,3 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import 'modern-normalize/modern-normalize.css';
 import "../styles/style.scss";
 import { initUI } from "./createUI";
