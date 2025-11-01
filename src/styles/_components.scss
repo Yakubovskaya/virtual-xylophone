@@ -47,9 +47,12 @@
   width: 30px;
   height: 30px;
   padding: 0;
-  border: 1px solid #dedede;
+  border: 1px solid #e6e6e6;
   border-radius: 7px;
-  background: #eae7e7;
+  background: url("../icons/pencil.svg") no-repeat center;
+  background-size: 60%;
+  background-color: #eae7e7;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
 }
 
 .key__name {
