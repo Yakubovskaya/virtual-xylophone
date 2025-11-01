@@ -7,7 +7,7 @@ const createAppContainer = () => {
 
 const createEditInput = (container) => {
   const editInputWrapper = document.createElement("div");
-  editInputWrapper.classList.add("edit-input","edit-input__wrapper");
+  editInputWrapper.classList.add("edit-input","edit-input__wrapper", "hidden");
 
   const editLabel = document.createElement("label");
   editLabel.textContent = 'Edit key';
@@ -45,7 +45,7 @@ const createKeys = (container, keysData) => {
     keyContainer.appendChild(keyName);
 
     const keyButton = document.createElement("button");
-    keyButton.classList.add("key__button", `key__button--${key.colorClass}`);
+    keyButton.classList.add("button", "key__button", `key__button--${key.slot}`);
     keyContainer.appendChild(keyButton);
 
     container.appendChild(keyContainer);
