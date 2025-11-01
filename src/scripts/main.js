@@ -18,8 +18,7 @@ const keysData = [
   { name: "F", code: "KeyF", slot: "fourth" },
   { name: "G", code: "KeyG", slot: "fifth" },
   { name: "H", code: "KeyH", slot: "sixth" },
-  { name: "J", code: "KeyJ", slot: "seventh" },
-  { name: "K", code: "KeyK", slot: "eighth" },
+  { name: "J", code: "KeyJ", slot: "seventh" }
 ];
 
 addFavicon('./favicon.ico');
