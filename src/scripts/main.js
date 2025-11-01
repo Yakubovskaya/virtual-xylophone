@@ -3,6 +3,13 @@ import "../styles/style.scss";
 import { initUI } from "./createUI";
 import { initEdit } from "./edit";
 
+const addFavicon = (url) => {
+  const link = document.createElement('link');
+  link.rel = 'icon';
+  link.type = 'image/x-icon';
+  link.href = url;
+  document.head.appendChild(link);
+}
 
 const keysData = [
   { name: "A", code: "KeyA", slot: "first" },
@@ -14,6 +21,8 @@ const keysData = [
   { name: "J", code: "KeyJ", slot: "seventh" },
   { name: "K", code: "KeyK", slot: "eighth" },
 ];
+
+addFavicon('./favicon.ico');
 
 const { keys, editInputWrapper, editField } = initUI(keysData);
 
