@@ -1,5 +1,9 @@
 @use 'variables' as *;
 
+.button {
+  cursor: pointer;
+}
+
 .edit-input__wrapper {
   display: flex;
   align-items: center;
