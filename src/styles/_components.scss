@@ -5,12 +5,14 @@
 }
 
 .edit-input__wrapper {
+  position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   max-width: 200px;
-  gap: 16px;
+  gap: 8px;
 }
 
 .edit-input__label {
@@ -19,8 +21,9 @@
 
 .edit-input__field {
   width: 100%;
-  max-width: 30px;
+  max-width: 40px;
   padding: 8px;
+  text-align: center;
   border: 1px solid #cccccc;
   border-radius: 4px;
 }
@@ -145,13 +148,12 @@
   background-color: #e692f8;
 }
 
-
 .player-input__wrapper {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  gap: 16px;
+  gap: 8px;
   justify-content: center;
   width: 100%;
   max-width: 600px;
@@ -177,3 +179,10 @@
   color: #ffffff;
   border-radius: 4px;
 }
+
+.error-msg {
+  position: absolute;
+  top: 70px;
+  color: #ff0000;
+  font-size: 14px;
+} 

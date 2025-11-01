@@ -1,3 +1,9 @@
 .hidden {
   display: none;
 }
+
+.is-invalid {
+  outline: none;
+  border: 1px solid #ff0000;
+} 
+

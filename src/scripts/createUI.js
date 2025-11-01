@@ -16,6 +16,7 @@ const createEditInput = (container) => {
 
   const editField = document.createElement("input");
   editField.classList.add("edit-input__field");
+  editField.setAttribute('maxlength', '1');
   editInputWrapper.appendChild(editField);
 
   container.appendChild(editInputWrapper);
@@ -31,7 +32,7 @@ const createKeyboardContainer = (parent) => {
 };
 
 const createKeys = (container, keysData) => {
-  keysData.map((key) => {
+  return keysData.map((key) => {
     const keyContainer = document.createElement("div");
     keyContainer.classList.add("key", "keyboard__key");
 
@@ -49,7 +50,12 @@ const createKeys = (container, keysData) => {
     keyContainer.appendChild(keyButton);
 
     container.appendChild(keyContainer);
-    return { keyContainer, editButton, keyName, keyButton };
+    return { 
+      keyContainer, 
+      editButton, 
+      keyName, 
+      keyButton, 
+      assignedKey: key.name };
   });
 };
 

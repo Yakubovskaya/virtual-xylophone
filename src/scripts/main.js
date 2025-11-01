@@ -1,6 +1,7 @@
 import 'modern-normalize/modern-normalize.css';
 import "../styles/style.scss";
 import { initUI } from "./createUI";
+import { initEdit } from "./edit";
 
 
 const keysData = [
@@ -14,4 +15,6 @@ const keysData = [
   { name: "K", code: "KeyK", slot: "eighth" },
 ];
 
-initUI(keysData);
+const { keys, editInputWrapper, editField } = initUI(keysData);
+
+initEdit(keys, editInputWrapper, editField);
