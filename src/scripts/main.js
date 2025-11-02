@@ -14,20 +14,20 @@ const addFavicon = (url) => {
 };
 
 addFavicon("./favicon.ico");
-loadSounds();
 
 const keysData = [
-  { name: "A", code: "KeyA", slot: "first" },
-  { name: "S", code: "KeyS", slot: "second" },
-  { name: "D", code: "KeyD", slot: "third" },
-  { name: "F", code: "KeyF", slot: "fourth" },
-  { name: "G", code: "KeyG", slot: "fifth" },
-  { name: "H", code: "KeyH", slot: "sixth" },
-  { name: "J", code: "KeyJ", slot: "seventh" },
+  { name: "A", note: "C", code: "KeyA", slot: "first" },
+  { name: "S", note: "D", code: "KeyS", slot: "second" },
+  { name: "D", note: "E", code: "KeyD", slot: "third" },
+  { name: "F", note: "F", code: "KeyF", slot: "fourth" },
+  { name: "G", note: "G", code: "KeyG", slot: "fifth" },
+  { name: "H", note: "A", code: "KeyH", slot: "sixth" },
+  { name: "J", note: "B", code: "KeyJ", slot: "seventh" },
 ];
+
+loadSounds();
 
 const { keys, editInputWrapper, editField } = initUI(keysData);
 
 initKeyInteractions(keys);
 initEdit(keys, editInputWrapper, editField);
-

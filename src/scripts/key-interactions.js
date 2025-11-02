@@ -2,7 +2,7 @@ import { sounds, playSound } from "./key-sounds";
 
 const findPressedKey = (e, keys) => keys.find((key) => key.code === e.code);
 const activateKey = (key) => {
-  playSound(key.assignedKey, sounds);
+  playSound(key.note, sounds);
   key.keyButton.classList.add("active");
 };
 const deactivateKey = (key) => key.keyButton.classList.remove("active");

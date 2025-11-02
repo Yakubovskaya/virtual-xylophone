@@ -3,13 +3,13 @@ const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 const sounds = {};
 
 const soundFiles = [
-  "A.wav",
-  "S.wav",
+  "C.wav",
   "D.wav",
+  "E.wav",
   "F.wav",
   "G.wav",
-  "H.wav",
-  "J.wav",
+  "A.wav",
+  "B.wav",
 ];
 
 const loadSounds = () => {
@@ -22,17 +22,17 @@ const loadSounds = () => {
         return audioContext.decodeAudioData(data);
       })
       .then((buffer) => {
-        const keyName = soundFiles[index].split(".")[0];
-        sounds[keyName] = buffer;
+        const keyNote = soundFiles[index].split(".")[0];
+        sounds[keyNote] = buffer;
       });
   });
 };
 
-const playSound = (keyName, sounds) => {
-  if (!sounds[keyName]) return;
+const playSound = (keyNote, sounds) => {
+  if (!sounds[keyNote]) return;
 
   const source = audioContext.createBufferSource();
-  source.buffer = sounds[keyName];
+  source.buffer = sounds[keyNote];
   source.connect(audioContext.destination);
   source.start(0);
 };

@@ -24,6 +24,7 @@ const onEditButtonClick = (inputWrapper, inputEl, keyObj, keys) => {
 
       if (!isDuplicate && isValid) {
         keyObj.assignedKey = newKey;
+        keyObj.code = `Key${newKey}`;
         keyObj.keyName.textContent = newKey;
       } else {
         const oldMsg = inputWrapper.querySelector(".error-msg");

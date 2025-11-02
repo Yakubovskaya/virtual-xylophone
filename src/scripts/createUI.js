@@ -60,7 +60,8 @@ const createKeys = (container, keysData) => {
       keyName,
       keyButton,
       assignedKey: key.name,
-      code: key.code
+      code: key.code,
+      note: key.note,
     };
   });
 };
