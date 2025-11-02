@@ -2,7 +2,7 @@ const initEdit = (keys, inputWrapper, inputEl) => {
   keys.forEach((keyObj) => {
     const { editButton } = keyObj;
     editButton.addEventListener("click", () =>
-      onEditButtonClick(inputWrapper, inputEl, keyObj, keys)
+      onEditButtonClick(inputWrapper, inputEl, keyObj, keys),
     );
   });
 };

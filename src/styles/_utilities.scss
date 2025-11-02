@@ -5,5 +5,10 @@
 .is-invalid {
   outline: none;
   border: 1px solid #ff0000;
-} 
+}
 
+.active {
+  transform: translateY(-3px) scale(0.98);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  filter: brightness(0.95);
+} 

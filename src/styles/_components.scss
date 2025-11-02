@@ -1,4 +1,4 @@
-@use 'variables' as *;
+@use "variables" as *;
 
 .button {
   cursor: pointer;
@@ -77,35 +77,29 @@
   border-radius: 14px;
   border: 1px solid #edecec;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  
+
   &::before,
   &::after {
-    content: '';
+    content: "";
     position: absolute;
     width: clamp(10px, 3vw, 17px);
     height: clamp(10px, 3vw, 17px);
     background-color: #ffffff;
     border-radius: 50%;
   }
-  
+
   &::before {
     top: 10px;
   }
-  
+
   &::after {
     bottom: 10px;
   }
 
-  &:hover {
+  &:hover:not(.active) {
     transform: translateY(-3px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    filter: brightness(1);
-  }
-  
-  &:active {
-    transform: translateY(-2px) scale(0.98);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    filter: brightness(0.95);
+    filter: brightness(1.1);
   }
 }
 
@@ -180,4 +174,4 @@
   top: 70px;
   color: #ff0000;
   font-size: 14px;
-} 
+}

@@ -4,5 +4,6 @@ export default defineConfig({
   base: './',
   build: {
     minify: false
-  }
+  },
+  assetsInclude: ['**/*.wav'],
 })

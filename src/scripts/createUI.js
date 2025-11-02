@@ -7,16 +7,16 @@ const createAppContainer = () => {
 
 const createEditInput = (container) => {
   const editInputWrapper = document.createElement("div");
-  editInputWrapper.classList.add("edit-input","edit-input__wrapper", "hidden");
+  editInputWrapper.classList.add("edit-input", "edit-input__wrapper", "hidden");
 
   const editLabel = document.createElement("label");
-  editLabel.textContent = 'Edit key';
+  editLabel.textContent = "Edit key";
   editLabel.classList.add("edit-input__label");
   editInputWrapper.appendChild(editLabel);
 
   const editField = document.createElement("input");
   editField.classList.add("edit-input__field");
-  editField.setAttribute('maxlength', '1');
+  editField.setAttribute("maxlength", "1");
   editInputWrapper.appendChild(editField);
 
   container.appendChild(editInputWrapper);
@@ -46,25 +46,31 @@ const createKeys = (container, keysData) => {
     keyContainer.appendChild(keyName);
 
     const keyButton = document.createElement("button");
-    keyButton.classList.add("button", "key__button", `key__button--${key.slot}`);
+    keyButton.classList.add(
+      "button",
+      "key__button",
+      `key__button--${key.slot}`,
+    );
     keyContainer.appendChild(keyButton);
 
     container.appendChild(keyContainer);
-    return { 
-      keyContainer, 
-      editButton, 
-      keyName, 
-      keyButton, 
-      assignedKey: key.name };
+    return {
+      keyContainer,
+      editButton,
+      keyName,
+      keyButton,
+      assignedKey: key.name,
+      code: key.code
+    };
   });
 };
 
 const createPlayerInput = (container) => {
   const playerInputWrapper = document.createElement("div");
-  playerInputWrapper.classList.add("player-input","player-input__wrapper");
+  playerInputWrapper.classList.add("player-input", "player-input__wrapper");
 
   const playerLabel = document.createElement("label");
-  playerLabel.textContent = 'Enter key sequence';
+  playerLabel.textContent = "Enter key sequence";
   playerLabel.classList.add("player-input__label");
   playerInputWrapper.appendChild(playerLabel);
 
@@ -74,7 +80,7 @@ const createPlayerInput = (container) => {
 
   const playerButton = document.createElement("button");
   playerButton.classList.add("button", "player-input__button");
-  playerButton.textContent = 'Play';
+  playerButton.textContent = "Play";
   playerInputWrapper.appendChild(playerButton);
 
   container.appendChild(playerInputWrapper);
@@ -87,17 +93,18 @@ const initUI = (keysData) => {
   const { editInputWrapper, editField } = createEditInput(app);
   const keyboardContainer = createKeyboardContainer(app);
   const keys = createKeys(keyboardContainer, keysData);
-  const { playerInputWrapper, playerField, playerButton } = createPlayerInput(app);
+  const { playerInputWrapper, playerField, playerButton } =
+    createPlayerInput(app);
 
-  return { 
-    app, 
-    keyboardContainer, 
-    editInputWrapper, 
-    editField, 
-    keys, 
-    playerInputWrapper, 
-    playerField, 
-    playerButton 
+  return {
+    app,
+    keyboardContainer,
+    editInputWrapper,
+    editField,
+    keys,
+    playerInputWrapper,
+    playerField,
+    playerButton,
   };
 };
 
