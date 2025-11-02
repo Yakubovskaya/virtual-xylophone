@@ -5,7 +5,7 @@
 }
 
 .edit-input__wrapper {
-  position: relative;
+  // position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,6 +20,7 @@
 }
 
 .edit-input__field {
+  position: relative ;
   width: 100%;
   max-width: 40px;
   padding: 8px;
@@ -138,6 +139,7 @@
 }
 
 .player-input__wrapper {
+  position: relative;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -175,3 +177,4 @@
   color: #ff0000;
   font-size: 14px;
 }
+

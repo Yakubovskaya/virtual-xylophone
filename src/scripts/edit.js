@@ -26,6 +26,7 @@ const onEditButtonClick = (inputWrapper, inputEl, keyObj, keys) => {
         keyObj.assignedKey = newKey;
         keyObj.code = `Key${newKey}`;
         keyObj.keyName.textContent = newKey;
+
       } else {
         const oldMsg = inputWrapper.querySelector(".error-msg");
         if (oldMsg) oldMsg.remove();

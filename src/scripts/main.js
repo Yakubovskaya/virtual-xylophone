@@ -4,6 +4,7 @@ import { initUI } from "./createUI";
 import { initEdit } from "./edit";
 import { loadSounds } from "./key-sounds";
 import { initKeyInteractions } from "./key-interactions";
+import { initKeySequence } from "./key-sequence";
 
 const addFavicon = (url) => {
   const link = document.createElement("link");
@@ -27,7 +28,13 @@ const keysData = [
 
 loadSounds();
 
-const { keys, editInputWrapper, editField } = initUI(keysData);
+const { 
+  keys, 
+  editInputWrapper, 
+  editField, 
+  playerField } = initUI(keysData);
 
 initKeyInteractions(keys);
 initEdit(keys, editInputWrapper, editField);
+initKeySequence(playerField, keys);
+
