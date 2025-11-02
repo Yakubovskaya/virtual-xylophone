@@ -28,13 +28,9 @@ const keysData = [
 
 loadSounds();
 
-const { 
-  keys, 
-  editInputWrapper, 
-  editField, 
-  playerField } = initUI(keysData);
+const { keys, editInputWrapper, editField, playerField, playerButton } =
+  initUI(keysData);
 
 initKeyInteractions(keys);
 initEdit(keys, editInputWrapper, editField);
-initKeySequence(playerField, keys);
-
+initKeySequence(playerButton, playerField, keys);

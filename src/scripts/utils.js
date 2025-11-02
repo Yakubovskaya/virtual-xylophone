@@ -1,9 +1,9 @@
 const showErrorMessage = (input, options = {}) => {
   const {
-    text = "Invalid",      
+    text = "Invalid",
     parent = input.parentElement,
-    className = "error-msg",      
-    top = null                    
+    className = "error-msg",
+    top = null,
   } = options;
 
   const oldMsg = parent.querySelector(className);
@@ -15,8 +15,7 @@ const showErrorMessage = (input, options = {}) => {
   msg.textContent = text;
   msg.classList.add(className);
 
-  if(top !== null)
-  msg.style.top = top;
+  if (top !== null) msg.style.top = top;
 
   parent.appendChild(msg);
 

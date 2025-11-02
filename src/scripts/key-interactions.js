@@ -56,4 +56,4 @@ const initKeyInteractions = (keys) => {
   initKeyboard(keys);
 };
 
-export { initKeyInteractions };
+export { initKeyInteractions, activateKey, deactivateKey };
