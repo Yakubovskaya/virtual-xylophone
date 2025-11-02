@@ -6,7 +6,7 @@ const showErrorMessage = (input, options = {}) => {
     top = null                    
   } = options;
 
-  const oldMsg = parent.querySelector(".error-msg");
+  const oldMsg = parent.querySelector(className);
   if (oldMsg) oldMsg.remove();
 
   input.classList.add("is-invalid");
@@ -23,8 +23,8 @@ const showErrorMessage = (input, options = {}) => {
   setTimeout(() => {
     input.classList.remove("is-invalid");
     msg.remove();
-  }, 1000);
+  }, 2000);
   return;
 };
 
-export { showErrorMessage }
+export { showErrorMessage };

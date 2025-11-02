@@ -1,8 +1,10 @@
+import { showErrorMessage } from "./utils";
+
 const initEdit = (keys, inputWrapper, inputEl) => {
   keys.forEach((keyObj) => {
     const { editButton } = keyObj;
     editButton.addEventListener("click", () =>
-      onEditButtonClick(inputWrapper, inputEl, keyObj, keys),
+      onEditButtonClick(inputWrapper, inputEl, keyObj, keys)
     );
   });
 };
@@ -26,24 +28,11 @@ const onEditButtonClick = (inputWrapper, inputEl, keyObj, keys) => {
         keyObj.assignedKey = newKey;
         keyObj.code = `Key${newKey}`;
         keyObj.keyName.textContent = newKey;
-
       } else {
-        const oldMsg = inputWrapper.querySelector(".error-msg");
-        if (oldMsg) oldMsg.remove();
-
-        inputEl.classList.add("is-invalid");
-
-        const msg = document.createElement("span");
-        msg.textContent = isDuplicate
+        const errorText = isDuplicate
           ? "This key is already in use"
-          : "Please enter one Latin letter";
-        msg.classList.add("error-msg");
-        inputWrapper.appendChild(msg);
-
-        setTimeout(() => {
-          inputEl.classList.remove("is-invalid");
-          msg.remove();
-        }, 2000);
+          : "Please enter only Latin letters";
+        showErrorMessage(inputEl, { text: errorText, top: "70px" });
         return;
       }
 
