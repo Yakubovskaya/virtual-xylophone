@@ -14,7 +14,7 @@ const soundFiles = [
 
 const loadSounds = () => {
   soundFiles.forEach((file, index) => {
-    fetch(`/src/sounds/${file}`)
+    fetch(`/sounds/${file}`)
       .then((response) => {
         return response.arrayBuffer();
       })
