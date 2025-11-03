@@ -12,11 +12,13 @@ const createEditInput = (container) => {
   const editLabel = document.createElement("label");
   editLabel.textContent = "Edit key";
   editLabel.classList.add("edit-input__label");
+  editLabel.setAttribute("for", "edit-key");
   editInputWrapper.appendChild(editLabel);
 
   const editField = document.createElement("input");
   editField.classList.add("edit-input__field");
   editField.setAttribute("maxlength", "1");
+  editField.setAttribute("id", "edit-key");
   editInputWrapper.appendChild(editField);
 
   container.appendChild(editInputWrapper);
@@ -73,10 +75,12 @@ const createPlayerInput = (container) => {
   const playerLabel = document.createElement("label");
   playerLabel.textContent = "Enter key sequence";
   playerLabel.classList.add("player-input__label");
+  playerLabel.setAttribute("for", "player-sequence");
   playerInputWrapper.appendChild(playerLabel);
 
   const playerField = document.createElement("input");
   playerField.classList.add("player-input__field");
+  playerField.setAttribute("id", "player-sequence");
   playerInputWrapper.appendChild(playerField);
 
   const playerButton = document.createElement("button");
