@@ -7,6 +7,7 @@ const activateKey = (key) => {
 };
 const deactivateKey = (key) => key.keyButton.classList.remove("active");
 let pressedKey = null;
+let keyboardLocked = false;
 
 const onKeyButtonDown = (key) => {
   activateKey(key);
@@ -32,7 +33,7 @@ const initKeyClicks = (keys) => {
 
 const initKeyboard = (keys) => {
   const handleKeydown = (e) => {
-    if (pressedKey) return;
+    if (pressedKey || keyboardLocked) return;
     const key = findPressedKey(e, keys);
     if (e.repeat || !key) return;
     pressedKey = key;
@@ -40,6 +41,7 @@ const initKeyboard = (keys) => {
   };
 
   const handleKeyup = (e) => {
+    if (keyboardLocked) return;
     const key = findPressedKey(e, keys);
     if (key && key === pressedKey) {
       deactivateKey(key);
@@ -51,9 +53,18 @@ const initKeyboard = (keys) => {
   document.body.addEventListener("keyup", handleKeyup);
 };
 
+const disableKeyboard = () => (keyboardLocked = true);
+const enableKeyboard = () => (keyboardLocked = false);
+
 const initKeyInteractions = (keys) => {
   initKeyClicks(keys);
   initKeyboard(keys);
 };
 
-export { initKeyInteractions, activateKey, deactivateKey };
+export {
+  initKeyInteractions,
+  activateKey,
+  deactivateKey,
+  disableKeyboard,
+  enableKeyboard,
+};

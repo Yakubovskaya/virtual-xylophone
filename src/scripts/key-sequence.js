@@ -2,6 +2,7 @@ import { showErrorMessage } from "./utils";
 import { activateKey } from "./key-interactions";
 import { deactivateKey } from "./key-interactions";
 import { disableInteraction, enableInteraction } from "./manage-state";
+import { disableKeyboard, enableKeyboard } from "./key-interactions";
 
 const sanitizeInputValue = (keys, input) => {
   const maxLength = keys.length * 2;
@@ -41,6 +42,7 @@ const onPlayButtonClick = (button, input, keys) => {
   const keySequence = input.value.split("");
 
   disableInteraction(button, input, keys);
+  disableKeyboard();
 
   keySequence.forEach((key, index) => {
     let existedKey = keys.find((el) => el.assignedKey === key);
@@ -51,7 +53,10 @@ const onPlayButtonClick = (button, input, keys) => {
   });
 
   const totalDuration = keySequence.length * 400;
-  setTimeout(() => enableInteraction(button, input, keys), totalDuration);
+  setTimeout(() => {
+    enableInteraction(button, input, keys);
+    enableKeyboard();
+  }, totalDuration);
 };
 
 const initKeySequence = (button, input, keys) => {
