@@ -1,15 +1,34 @@
 import { showErrorMessage } from "./utils";
+import {
+  disableSequenceInteraction,
+  enableSequenceInteraction,
+} from "./manage-state";
 
-const initEdit = (keys, inputWrapper, inputEl) => {
+const initEdit = (keys, inputWrapper, inputEl, playerField, playerButton) => {
   keys.forEach((keyObj) => {
     const { editButton } = keyObj;
-    editButton.addEventListener("click", () =>
-      onEditButtonClick(inputWrapper, inputEl, keyObj, keys),
-    );
+    editButton.addEventListener("click", () => {
+      disableSequenceInteraction(playerField, playerButton);
+      onEditButtonClick(
+        inputWrapper,
+        inputEl,
+        keyObj,
+        keys,
+        playerField,
+        playerButton,
+      );
+    });
   });
 };
 
-const onEditButtonClick = (inputWrapper, inputEl, keyObj, keys) => {
+const onEditButtonClick = (
+  inputWrapper,
+  inputEl,
+  keyObj,
+  keys,
+  playerField,
+  playerButton,
+) => {
   inputWrapper.classList.remove("hidden");
   inputEl.value = keyObj.assignedKey;
   inputEl.focus();
@@ -38,6 +57,8 @@ const onEditButtonClick = (inputWrapper, inputEl, keyObj, keys) => {
 
       inputWrapper.classList.add("hidden");
       inputEl.removeEventListener("keydown", enterHandler);
+
+      enableSequenceInteraction(playerField, playerButton);
     }
   };
 

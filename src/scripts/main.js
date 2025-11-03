@@ -32,5 +32,5 @@ const { keys, editInputWrapper, editField, playerField, playerButton } =
   initUI(keysData);
 
 initKeyInteractions(keys);
-initEdit(keys, editInputWrapper, editField);
+initEdit(keys, editInputWrapper, editField, playerField, playerButton);
 initKeySequence(playerButton, playerField, keys);
