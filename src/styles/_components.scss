@@ -177,6 +177,15 @@
 
 .error-msg {
   position: absolute;
+  left: 0;
+  bottom: -18px;
+  width: 100%;
+  font-size: 12px;
+  text-align: center;
   color: #ff0000;
-  font-size: 14px;
+  z-index: 2;
+  @media (max-width: 600px) {
+    bottom: -16px;
+    font-size: 11px;
+  }
 }

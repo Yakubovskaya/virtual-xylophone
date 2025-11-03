@@ -32,7 +32,7 @@ const onEditButtonClick = (inputWrapper, inputEl, keyObj, keys) => {
         const errorText = isDuplicate
           ? "This key is already in use"
           : "Please enter only Latin letters";
-        showErrorMessage(inputEl, { text: errorText, top: "70px" });
+        showErrorMessage(inputEl, { text: errorText });
         return;
       }
 

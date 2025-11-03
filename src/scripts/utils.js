@@ -3,10 +3,9 @@ const showErrorMessage = (input, options = {}) => {
     text = "Invalid",
     parent = input.parentElement,
     className = "error-msg",
-    top = null,
   } = options;
 
-  const oldMsg = parent.querySelector(className);
+  const oldMsg = parent.querySelector(`.${className}`);
   if (oldMsg) oldMsg.remove();
 
   input.classList.add("is-invalid");

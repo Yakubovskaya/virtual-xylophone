@@ -12,7 +12,6 @@ const sanitizeInputValue = (keys, input) => {
   if (cleaned !== original) {
     showErrorMessage(input, {
       text: "Please enter only Latin letters",
-      top: "45px",
     });
   }
 
