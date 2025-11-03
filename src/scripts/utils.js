@@ -22,7 +22,7 @@ const showErrorMessage = (input, options = {}) => {
   setTimeout(() => {
     input.classList.remove("is-invalid");
     msg.remove();
-  }, 2000);
+  }, 1200);
   return;
 };
 
