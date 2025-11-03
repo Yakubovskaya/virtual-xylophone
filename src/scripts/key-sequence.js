@@ -1,6 +1,7 @@
 import { showErrorMessage } from "./utils";
 import { activateKey } from "./key-interactions";
 import { deactivateKey } from "./key-interactions";
+import { disableInteraction, enableInteraction } from "./manage-state";
 
 const sanitizeInputValue = (keys, input) => {
   const maxLength = keys.length * 2;
@@ -31,17 +32,17 @@ const handleInputChange = (keys, input) => {
   input.value = sanitizeInputValue(keys, input);
 };
 
-const initKeySequence = (button, input, keys) => {
-  input.addEventListener("input", () => handleInputChange(keys, input));
-  playKeySequence(button, input, keys);
-};
-
 const playKeySequence = (button, input, keys) => {
-  button.addEventListener("click", () => onPlayButtonClick(input, keys));
+  button.addEventListener("click", () =>
+    onPlayButtonClick(button, input, keys),
+  );
 };
 
-const onPlayButtonClick = (input, keys) => {
+const onPlayButtonClick = (button, input, keys) => {
   const keySequence = input.value.split("");
+
+  disableInteraction(button, input, keys);
+
   keySequence.forEach((key, index) => {
     let existedKey = keys.find((el) => el.assignedKey === key);
     setTimeout(() => {
@@ -49,6 +50,14 @@ const onPlayButtonClick = (input, keys) => {
       setTimeout(() => deactivateKey(existedKey), 400);
     }, 400 * index);
   });
+
+  const totalDuration = keySequence.length * 400;
+  setTimeout(() => enableInteraction(button, input, keys), totalDuration);
+};
+
+const initKeySequence = (button, input, keys) => {
+  input.addEventListener("input", () => handleInputChange(keys, input));
+  playKeySequence(button, input, keys);
 };
 
 export { initKeySequence };
