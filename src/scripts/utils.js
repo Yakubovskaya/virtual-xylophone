@@ -25,4 +25,6 @@ const showErrorMessage = (input, options = {}) => {
   return;
 };
 
-export { showErrorMessage };
+const delay = (ms) => new Promise((resolve) => {setTimeout(resolve, ms)});
+
+export { showErrorMessage, delay };

@@ -1,8 +1,10 @@
-import { showErrorMessage } from "./utils";
+import { showErrorMessage, delay } from "./utils";
 import { activateKey } from "./key-interactions";
 import { deactivateKey } from "./key-interactions";
 import { disableInteraction, enableInteraction } from "./manage-state";
 import { disableKeyboard, enableKeyboard } from "./key-interactions";
+
+const WAIT_TIME = 400;
 
 const sanitizeInputValue = (keys, input) => {
   const maxLength = keys.length * 2;
@@ -34,29 +36,25 @@ const handleInputChange = (keys, input) => {
 
 const playKeySequence = (button, input, keys) => {
   button.addEventListener("click", () =>
-    onPlayButtonClick(button, input, keys),
+    onPlayButtonClick(button, input, keys)
   );
 };
 
-const onPlayButtonClick = (button, input, keys) => {
+const onPlayButtonClick = async (button, input, keys) => {
   const keySequence = input.value.split("");
 
   disableInteraction(button, input, keys);
   disableKeyboard();
 
-  keySequence.forEach((key, index) => {
+  for (const key of keySequence) {
     let existedKey = keys.find((el) => el.assignedKey === key);
-    setTimeout(() => {
-      activateKey(existedKey);
-      setTimeout(() => deactivateKey(existedKey), 400);
-    }, 400 * index);
-  });
+    activateKey(existedKey);
+    await delay(WAIT_TIME);
+    deactivateKey(existedKey);
+  };
 
-  const totalDuration = keySequence.length * 400;
-  setTimeout(() => {
-    enableInteraction(button, input, keys);
-    enableKeyboard();
-  }, totalDuration);
+  enableInteraction(button, input, keys);
+  enableKeyboard();
 };
 
 const initKeySequence = (button, input, keys) => {
