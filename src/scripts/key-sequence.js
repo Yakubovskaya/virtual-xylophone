@@ -36,7 +36,7 @@ const handleInputChange = (keys, input) => {
 
 const playKeySequence = (button, input, keys) => {
   button.addEventListener("click", () =>
-    onPlayButtonClick(button, input, keys)
+    onPlayButtonClick(button, input, keys),
   );
 };
 
@@ -51,7 +51,7 @@ const onPlayButtonClick = async (button, input, keys) => {
     activateKey(existedKey);
     await delay(WAIT_TIME);
     deactivateKey(existedKey);
-  };
+  }
 
   enableInteraction(button, input, keys);
   enableKeyboard();
