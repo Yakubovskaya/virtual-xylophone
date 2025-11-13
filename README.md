@@ -18,3 +18,7 @@ Playback of pre-recorded audio files is handled via **Web Audio API**.
 - **Keyboard support**: works with any layout and Caps Lock  
 - **Minimalist UI** with visual feedback on active elements  
 - **Code style and formatting** enforced with **ESLint** and **Prettier**
+
+## Deployment
+
+[Link](https://yakubovskaya.github.io/virtual-xylophone/)
